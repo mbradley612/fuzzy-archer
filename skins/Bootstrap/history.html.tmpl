@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>$bootstrap_title</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+#include "bootstrap-head.inc"
   </head>
 
   <body>
-    <!-- Menu navbar -->
-    <div class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="$bootstrap_location_href">$station.location</a>
-        </div>
-        <div class="navbar-collapse collapse">
-           
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">The Weather</a></li>
-            <li><a href="stats.html">Stats</a></li>
-            <li class="active"><a href="#">History</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-          
-          <p class="navbar-text navbar-right">
-              Last Updated: $current.dateTime
-          </p>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>  
-
+   #set global $pageName ="History"
+   #include "navbar.inc"
+ 
  
   
     <!-- Main container -->  
@@ -55,70 +15,9 @@
       <div class="row">
       
       
-        <!-- Gauge panel -->      
-        <div class="col-md-4">
-          <div class="row">
-              <div class="col-md-6" align="center">
-                <img src="outTempGauge.png" alt="">
-                <h5>Outside temperature</h5>
-              </div>          
-          
-              <div class="col-md-6" align="center">
-                <img src="barometerGauge.png" alt="">
-                <h5>Barometric pressure</h5>            
-              </div>          
-          </div>
-          <div class="row">
-              <div class="col-md-6" align="center">
-                <img src="windDirGauge.png" alt="">
-                <h5>Wind direction</h5>
-              </div>          
-          
-              <div class="col-md-6" align="center">
-                <img src="outHumidityGauge.png" alt="">
-                <h5>Outside humidity</h5>            
-              </div>          
-          </div>   
-          <div class="row">
-              <div class="col-md-6" align="center">
-                <img src="windSpeedGauge.png" alt="">
-                <h5>Wind speed</h5>
-              </div>          
-          
-              <div class="col-md-6" align="center">
-                <img src="windGustGauge.png" alt="">
-                <h5>Gust speed</h5>            
-              </div>          
-          </div>   
-          
-          <!-- Station info -->
-          <div class="row">
-            <table class="table table-hover">
-              <tbody>
-	              <tr>
-	                <td>Latitude:</td>
-	                <td>$station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2]</td>
-	              </tr>
-	              <tr>
-	                <td>Longitude:</td>
-	                <td>$station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2]</td>
-	              </tr>
-	              <tr>
-	                <td>Altitude:</td>
-	                <td>$station.altitude</td>
-	              </tr>
-	              <tr>
-	                <td>Station uptime:</td>
-	                <td>$station.uptime</td>
-	              </tr>
-	              <tr>
-	                <td>Server uptime:</td>
-	                <td>$station.os_uptime</td>
-	              </tr>
-	            </tbody>
-            </table>  
-          </div>        
-          
+    #include "gauge-panel.inc"
+	#include "station-info.inc"        
+                      
         </div>
         
         
